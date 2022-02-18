@@ -49,19 +49,23 @@ function drop() {
 }
 
 function show_link(img) {
-    var link = document.querySelector(`#Link_${img}`).style;
-    var img = document.querySelector(`#Img_${img}`).style;
-    img.opacity = "80%";
+    if (window.innerWidth > 990.4) {
+        var link = document.querySelector(`#Link_${img}`).style;
+        var img = document.querySelector(`#Img_${img}`).style;
+        img.opacity = "80%";
 
-    link.color = "white";
-    link.cursor = "pointer";
-    link.textDecoration = "none";
-    link.display = "block";
+        link.color = "white";
+        link.cursor = "pointer";
+        link.textDecoration = "none";
+        link.display = "block";
+    }
 }
 
 function hide_link(img) {
-    var link = document.querySelector(`#Link_${img}`).style;
-    var img = document.querySelector(`#Img_${img}`).style;
-    img.opacity = "100%";
-    link.display = "none";
+    if (window.innerWidth > 990.4) {
+        var link = document.querySelector(`#Link_${img}`).style;
+        var img = document.querySelector(`#Img_${img}`).style;
+        img.opacity = "100%";
+        link.display = "none";
+    }
 }
