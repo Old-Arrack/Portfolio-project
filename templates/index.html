@@ -1,0 +1,145 @@
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+  <title>Tharusha Gunawardane | Designer, Front-end/Back-end Developer </title>
+
+  <!--Bootstrap-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+  <!--Google Fonts-->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+
+  <!--FontAwesome-->
+  <link href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" rel="stylesheet">
+
+  <!--Local CSS-->
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+<body>
+  {% if goto %}
+    <input id="GoTo" style="display: none" value="true">
+  {% endif %}
+
+  <!--Title Page-->
+  <div class="brand-box"></div>
+  <div id="DropBox" class="drop-box"></div>
+  <section class="box" id="Title">
+
+    <!--Navigation Bar-->
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <a class="navbar-brand" href="{{ url_for('home') }}">Home</a>
+      <button class="navbar-toggler" onclick="drop();" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li id="NavLink" class="nav-item active">
+            <a class="nav-link" href="#Portfolio">Portfolio</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#Skills">Skills</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#ContactMe">Contact me</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </section>
+
+  <div class="description-box">
+    <h1 class="intro">Hi I'm Tharusha I design <br> and develop websites.</h1>
+
+    <h4 class="description">Check out some of my work</h4>
+    <a class="default" href="#Portfolio"><i class="fas fa-chevron-down description"></i></a>
+  </div>
+
+  <section class="section-temp" id="Portfolio">
+    <h1 class="topic">PORTFOLIO</h1>
+    <div class="row">
+      <div class="rel-div col-lg-6">
+        <a id="Link_1" onmouseover="show_link('1')" target="_blank" href="http://mctreasurehunt.herokuapp.com/" class="img-link link-btn">Visit website &nbsp;<i class="fas fa-globe"></i></a>
+        <img id="Img_1" onmouseout="hide_link('1')" onmouseover="show_link('1');" class="site-img" src="{{ url_for('static', filename='images/site-1.png') }}">
+      </div>
+      <div class="rel-div col-lg-6">
+        <a id="Link_2" onmouseover="show_link('2')" target="_blank" href="https://e-domain.herokuapp.com/" class="img-link link-btn">Visit website &nbsp;<i class="fas fa-globe"></i></a>
+        <img id="Img_2" onmouseout="hide_link('2')" onmouseover="show_link('2');" class="site-img" src="{{ url_for('static', filename='images/site-2.png') }}">
+      </div>
+    </div>
+
+    <div class="section-para">
+      <h3 class="center-text">These are few websites that I've worked on. I'm interested in developing simple websites for small businesses or startups.</h3>
+    </div>
+  </section>
+
+  <section id="Skills" class="section-temp" onscroll="barAnimation();">
+    <h1 class="topic">SKILLS</h1>
+    <div class="row">
+      <div class="skill-box col-lg-6">
+        <p class="lang-name">HTML</p>
+        <div class="skill-bar"></div>
+        <div class="skill-bar animate-sk"></div>
+      </div>
+      <div class="skill-box col-lg-6">
+        <p class="sk-l lang-name">CSS</p>
+        <div class="skb-l skill-bar"></div>
+        <div class="skb-l skill-bar animate-sk"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="skill-box col-lg-6">
+        <p class="lang-name">JS</p>
+        <div class="skill-bar"></div>
+        <div class="skill-bar animate-sk"></div>
+      </div>
+      <div class="skill-box col-lg-6">
+        <p class="sk-l lang-name">Python</p>
+        <div class="skb-l skill-bar"></div>
+        <div class="skb-l skill-bar animate-sk"></div>
+      </div>
+    </div>
+
+    <div class="sk-p section-para">
+      <h3 class="center-text">I mainly use Python (Flask) for the Back-end, and I'm familiar with HTMl/CSS/JavaScript as well as frameworks such as Bootstrap in terms of Front-end development.</h3>
+    </div>
+
+  </section>
+
+  <section id="ContactMe" class="section-temp">
+    <h1 class="topic">CONTACT ME</h1>
+    <div class="sk-p section-para">
+      <h3 class="center-text">If you'd like to send me a message regarding a project or a general question feel free to fill the form below. I'll get back to you as soon as possible. {% if goto %}<span class="msg-success">Message sent successfully.</span>{%endif%}</h3>
+    </div>
+    <form method="POST" action="{{ url_for('send_msg') }}">
+      <div class="info-box">
+        <input name="name" class="info-input contact-input" type="text" placeholder="Name*" required>
+        <input name="email" class="info-input contact-input" type="email" placeholder="Email*" required>
+      </div>
+      <textarea name="msg" placeholder="Message" class="msg-input contact-input"></textarea>
+
+      <button class="msg-btn">Send</button>
+    </form>
+  </section>
+
+  <div class="footer-box">
+    <div class="socials">
+      <a class="social-link" href="https://github.com/Old-Arrack">Github</a>
+      <a class="social-link" href="https://stackoverflow.com/users/14306793/old-arrack">Stackoverflow</a>
+      <a class="social-link" href="https://www.freelancer.com/u/tharushadgunawar">Freelancer</a>
+    </div>
+  </div>
+
+  <footer>
+    <!--Bootstrap JS-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+
+    <!--Local JS-->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </footer>
+</body>
+</html>
