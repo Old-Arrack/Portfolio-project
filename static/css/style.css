@@ -235,7 +235,7 @@ body {
 
 @media (max-width: 990px) {
     .site-img {
-        width: 60vw;
+        width: 70vw;
     }
 
     .link-btn {
@@ -259,7 +259,7 @@ body {
 
 @media (max-width: 530px) {
     .img-link {
-        left: 38%;
+        left: 36%;
     }
 }
 
@@ -403,6 +403,9 @@ body {
 }
 
 @media (max-width: 990px) {
+    .info-input {
+        width: 42vw;
+    }
     .msg-input {
         width: 95vw;
     }
