@@ -234,6 +234,10 @@ body {
 }
 
 @media (max-width: 990px) {
+    .site-img {
+        width: 60vw;
+    }
+
     .link-btn {
         display: block;
     }
@@ -243,7 +247,7 @@ body {
     }
 
     .center-text {
-        text-align: justify;
+        text-align: left;
     }
 }
 
@@ -325,19 +329,28 @@ body {
     .skb-l {
         right: 2rem;
     }
-}
 
-@media (max-width: 674.4px) {
     .skill-bar {
-        left: 8rem;
+        width: 65vw;
     }
+
+    .animate-sk {
+        width: 55vw;
+    }
+
     @keyframes expand-bar {
         from {
             width: 0;
         }
         to {
-            width: 30vw;
+            width: 55vw;
         }
+    }
+}
+
+@media (max-width: 674.4px) {
+    .skill-bar {
+        left: 8rem;
     }
 }
 
@@ -387,6 +400,15 @@ body {
     border: 1px solid black;
     border-radius: 5px;
     padding: .5rem 2rem;
+}
+
+@media (max-width: 990px) {
+    .info-input {
+        width: 64vw;
+    }
+    .msg-input {
+        width: 95vw;
+    }
 }
 
 /* Footer */
