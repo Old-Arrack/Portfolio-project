@@ -403,9 +403,6 @@ body {
 }
 
 @media (max-width: 990px) {
-    .info-input {
-        width: 64vw;
-    }
     .msg-input {
         width: 95vw;
     }
